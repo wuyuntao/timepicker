@@ -1,6 +1,6 @@
 /*
  * jQuery Timepicker Plugin
- * version 0.1
+ * version 0.2
  *
  * Copyright (c) 2008 Wu Yuntao <http://luliban.com/blog/>
  * 
@@ -127,7 +127,9 @@
         if (!this.length) return this;
 
         var debug = false,
+            _input = this,
             _timepicker = null,
+            _timepickerPosition = null,
             _hourpicker = null,
             _minutepicker = null,
             _secondpicker = null,
@@ -173,11 +175,8 @@
         /* Default options
         options = $.extend({ }, options || {});
         */ 
-        var _input = this;
 
-        _input.focus(showTimepicker).keydown(doKeyDown).click(function() {
-            if (!_timepickerShowing) showTimepicker();
-        });
+        this.focus(showTimepicker).click(showTimepicker).keydown(doKeyDown);
 
         function initialTimepicker() {
             _input.after(_html);
@@ -198,19 +197,37 @@
         }
 
         function showTimepicker() {
-            var current = _input.val();
-            if (current.match(/^[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2})$/)) {
-                current = current.split(':');
-                setTime(current[0], current[1], current[2]);
+            if (!_timepickerShowing) {
+                var current = _input.val();
+                if (current.match(/^[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2})$/)) {
+                    current = current.split(':');
+                    setTime(current[0], current[1], current[2]);
+                }
+                if (!_timepicker) initialTimepicker();
+                _timepicker.removeClass('hidden');
+                setPosition(this);
+                _timepickerShowing = true;
             }
-            if (!_timepicker) initialTimepicker();
-            _timepicker.removeClass('hidden');
-            _timepickerShowing = true;
         }
 
         function hideTimepicker() {
-            _timepicker.addClass('hidden');
-            _timepickerShowing = false;
+            if (_timepickerShowing) {
+                _timepicker.addClass('hidden');
+                _input.focus();
+                _timepickerShowing = false;
+            }
+        }
+
+        // Set position of timepicker
+        function setPosition(input) {
+            var _inputPosition = $(input).offset();
+            _timepickerPosition = [_inputPosition.left, _inputPosition.top + input.offsetHeight];
+            if ($.browser.opera) { // correction for Opera when scrolled
+    			_timepickerPosition[0] -= document.documentElement.scrollLeft;
+	    		_timepickerPosition[1] -= document.documentElement.scrollTop;
+            }
+            _timepicker.css({ 'left': _timepickerPosition[0] + 'px',
+                              'top': _timepickerPosition[1] + 'px' });
         }
 
         function doKeyDown(e) {
@@ -218,7 +235,7 @@
             if (_timepickerShowing) {
                 switch (e.keyCode) {
                     // Tab key
-                    case 9: getTime;
+                    case 9: getTime();
                             hideTimepicker();
                             break;
                     // ESC key
