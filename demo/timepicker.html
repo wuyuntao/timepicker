@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Language" content="zh-cn" />
+        <meta name="robots" content="NONE,NOARCHIVE" />
+
+        <title>Yet another jQuery timepicker plugin</title>
+
+        <link rel="stylesheet" type="text/css" href="timepicker.css" />
+
+    </head>
+
+    <body style="margin:0; padding:0;">
+        <p style="background:#ddd;font-size:80%;margin:0 0 10px;padding:12px 0;">Yet another jQuery timepicker plugin</p>
+
+        <form id="timepicker-form" action="." method="POST">
+            <input type="text" id="time-picker" name="time" ></input>
+            <input type="submit" id="submit" name="submit" value="submit" ></input>
+        </form>
+
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="timepicker.js"></script>
+        <script type="text/javascript">//<![CDATA[ 
+            $('#time-picker').timepicker();
+        //]]></script>
+    </body>
+
+</html>
