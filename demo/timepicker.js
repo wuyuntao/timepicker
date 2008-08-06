@@ -199,7 +199,7 @@
         function showTimepicker() {
             if (!_timepickerShowing) {
                 var current = _input.val();
-                if (current.match(/^[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2})$/)) {
+                if (current.match(/^[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2})?$/)) {
                     current = current.split(':');
                     setTime(current[0], current[1], current[2]);
                 }

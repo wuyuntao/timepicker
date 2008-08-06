@@ -30,10 +30,10 @@ div#time-picker-wrap {
     margin: 0 auto;
 }
 #time-picker-wrap .scoreboard .increase-button span {
-    background: url("increase.png") no-repeat;
+    background: url("../images/increase.png") no-repeat;
 }
 #time-picker-wrap .scoreboard .decrease-button span {
-    background: url("decrease.png") no-repeat;
+    background: url("../images/decrease.png") no-repeat;
 }
 
 #time-picker-wrap .scoreboard .score span {
