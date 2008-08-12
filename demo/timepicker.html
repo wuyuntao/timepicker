@@ -17,15 +17,31 @@
         <p style="background:#ddd;font-size:80%;margin:0 0 10px;padding:12px 0;">Yet another jQuery timepicker plugin</p>
 
         <form id="timepicker-form" action="." method="POST">
-            <input type="text" id="time-picker" name="time" ></input>
+            <input type="text" id="time-picker" name="time" autocomplete="off"></input>
             <input type="submit" id="submit" name="submit" value="submit" ></input>
         </form>
+
+        <div style="margin-top: 400px;" id="debug"></div>
 
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript" src="timepicker.js"></script>
         <script type="text/javascript">//<![CDATA[ 
-            $('#time-picker').timepicker();
+            $('#time-picker').timepicker({
+                showAnim: 'slide',
+                duration: 'fast',
+                defaultTime: '08:08:08'
+            });
         //]]></script>
+    <!--
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-514579-11");
+pageTracker._trackPageview();
+</script>
+-->
     </body>
 
 </html>

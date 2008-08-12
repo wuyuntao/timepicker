@@ -3,7 +3,7 @@
 div#time-picker-wrap {
     border: 2px solid #77bbff;
     color: #1166bb;
-    padding: 3px;
+    padding: 2px;
     margin: 0;
     background: #fff;
     position: absolute;
@@ -11,14 +11,14 @@ div#time-picker-wrap {
 }
 
 #time-picker-wrap table tr, #time-picker-wrap table td {
-    font-size: 22px;
+    font-size: 18px;
     vertical-align: middle;
     text-align: center;
 }
 
 #time-picker-wrap div.scoreboard {
     cursor: default;
-    margin: 3px 10px;
+    margin: 2px 6px;
 }
 
 #time-picker-wrap .scoreboard .increase-button span,
@@ -30,10 +30,10 @@ div#time-picker-wrap {
     margin: 0 auto;
 }
 #time-picker-wrap .scoreboard .increase-button span {
-    background: url("../images/increase.png") no-repeat;
+    background: url("increase.png") no-repeat;
 }
 #time-picker-wrap .scoreboard .decrease-button span {
-    background: url("../images/decrease.png") no-repeat;
+    background: url("decrease.png") no-repeat;
 }
 
 #time-picker-wrap .scoreboard .score span {
@@ -50,8 +50,8 @@ div#time-picker-wrap {
 
 #time-picker-wrap .clear-wrap, #time-picker-wrap .close-wrap {
     font-size: 12px;
-    font-weight: bold;
-    padding: 2px;
+    text-align: center;
+    padding: 2px 0;
     cursor: pointer;
     border: 1px solid #77bbff;
 }
