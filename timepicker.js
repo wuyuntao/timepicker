@@ -177,6 +177,8 @@ $.fn.timepicker = function(options) {
         defaultTime: '00:00:00'  // Used when field is blank: 00:00:00 
     }, options || {});
 
+    if (typeof options.defaultTime == 'object') 
+        options.defaultTime = options.defaultTime.toLocaleTimeString().split(' ')[0];
     this.val(options.defaultTime);
     this.focus(showTimepicker).click(showTimepicker).keydown(doKeyDown);
     $(document.body).mousedown(checkExternalClick);
