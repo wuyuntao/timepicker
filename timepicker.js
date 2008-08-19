@@ -159,11 +159,11 @@ $.fn.timepicker = function(options) {
               + '"></td><td>:</td><td class="' + _minuteWrapClass
               + '"></td><td>:</td><td class="' + _secondWrapClass
               + '"></td></tr><tr class="' + _timeSuggestWrapClass
-              + '"><td colspan="5">Now</td></tr><tr class="' + _timeSuggestWrapClass
+              + '"><td class="grey" colspan="5">Now</td></tr><tr class="' + _timeSuggestWrapClass
               + '"><td colspan="5">6 a.m.</td></tr><tr class="' + _timeSuggestWrapClass
-              + '"><td colspan="5">Noon</td></tr><tr class="' + _timeSuggestWrapClass
+              + '"><td class="grey" colspan="5">Noon</td></tr><tr class="' + _timeSuggestWrapClass
               + '"><td colspan="5">8 p.m.</td></tr><tr class="' + _timeSuggestWrapClass
-              + '"><td colspan="5">Midnight</td></tr><tr class="' + _buttonWrapClass
+              + '"><td class="grey" colspan="5">Midnight</td></tr><tr class="' + _buttonWrapClass
               + '"><td class="' + _clearWrapClass + '" colspan="2"><span>' + _clearText
               + '</span></td><td></td><td class="' + _closeWrapClass
               + '" colspan="2"><span>' + _closeText
@@ -177,9 +177,9 @@ $.fn.timepicker = function(options) {
         defaultTime: '00:00:00'  // Used when field is blank: 00:00:00 
     }, options || {});
 
+    // Convert date object into time string 
     if (typeof options.defaultTime == 'object') 
-        options.defaultTime = options.defaultTime.toLocaleTimeString().split(' ')[0];
-    this.val(options.defaultTime);
+        options.defaultTime = options.defaultTime.toTimeString().split(' ')[0];
     this.focus(showTimepicker).click(showTimepicker).keydown(doKeyDown);
     $(document.body).mousedown(checkExternalClick);
 
